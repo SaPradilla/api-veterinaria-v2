@@ -30,6 +30,9 @@ module.exports = {
       valor_total: {
         type: Sequelize.INTEGER
       },
+      cantidad:{
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
