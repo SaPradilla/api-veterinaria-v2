@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "pradi",
+    "password": "123",
+    "database": "veterinaria",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "pradi",
+    "password": "123",
+    "database": "veterinaria",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "pradi",
+    "password": "123",
+    "database": "veterinaria",
+    "dialect": "mysql"
+  }
+}
