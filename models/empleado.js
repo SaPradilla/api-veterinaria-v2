@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuario extends Model {
+  class empleado extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:1
-      usuario.hasOne(models.cirugia,{
+      empleado.hasOne(models.cirugia,{
       foreignKey:'medicoId'
       })
     }
   }
-  usuario.init({
+  empleado.init({
     nombre: DataTypes.STRING,
     apellido: DataTypes.STRING,
     numero_celular: DataTypes.STRING,
@@ -26,10 +26,10 @@ module.exports = (sequelize, DataTypes) => {
     rol: DataTypes.ENUM('Recepcionista','Médico','Auxiliar'),
     isAdmin:DataTypes.BOOLEAN,
     isActive:DataTypes.BOOLEAN,
-    contraseña: DataTypes.STRING
+    contrasena: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'usuario',
+    modelName: 'empleado',
   });
-  return usuario;
+  return empleado;
 };

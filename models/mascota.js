@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class perfil_mascota extends Model {
+  class mascota extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,33 +11,32 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:M
-      perfil_mascota.belongsTo(models.cliente,{
+      mascota.belongsTo(models.cliente,{
         foreignKey:'clienteId'
       })
       // M:1
-      perfil_mascota.hasMany(models.citas_medica,{
-        foreignKey:'perfil_mascotaId'
+      mascota.hasMany(models.citas_medica,{
+        foreignKey:'mascotaId'
       })
       // 1:1
-      perfil_mascota.hasOne(models.historias_clinica,{
-        foreignKey:'perfil_mascotaId'
+      mascota.hasOne(models.historias_clinica,{
+        foreignKey:'mascotaId'
       })
       // M:1
-      perfil_mascota.hasMany(models.cirugia,{
-        foreignKey:'perfil_mascotaId'
+      mascota.hasMany(models.cirugia,{
+        foreignKey:'mascotaId'
       })
       // // 1:1
-      // perfil_mascota.hasOne(models.rastreo,{
-      //   foreignKey:'perfil_mascotaId'
+      // mascota.hasOne(models.rastreo,{
+      //   foreignKey:'mascotaId'
       // })
       // 1-1
-      perfil_mascota.hasOne(models.carnet,{
-        foreignKey:'perfil_mascotaId'
+      mascota.hasOne(models.carnet,{
+        foreignKey:'mascotaId'
       })
     }
   }
-  perfil_mascota.init({
-    medicamentos: DataTypes.STRING,
+  mascota.init({
     nombre: DataTypes.STRING,
     numero_contacto: DataTypes.STRING,
     tipo_mascota: DataTypes.ENUM('Perro','Gato','Hámster','Ave','Pez','Reptil','Invertebrado','Conejo'),
@@ -45,7 +44,6 @@ module.exports = (sequelize, DataTypes) => {
     raza: DataTypes.STRING,
     genero: DataTypes.ENUM('Macho','Hembra'),
     tamaño: DataTypes.STRING,
-    patologias: DataTypes.STRING,
     peso: DataTypes.STRING,
     tratamiento: DataTypes.STRING,
     formula_medica: DataTypes.STRING,
@@ -55,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     isActive: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'perfil_mascota',
+    modelName: 'mascota',
   });
-  return perfil_mascota;
+  return mascota;
 };

@@ -1,23 +1,23 @@
 const db = require('../models')
-const VentaProducto = db.venta_producto
+const Ventamedicamento = db.venta_medicamento
 
 const CreateSalesProduct = async(req,res) =>{
     try{
-        const {clienteId,productoId,dirrecion,valor_total} = req.body
+        const {clienteId,medicamentoId,dirrecion,valor_total} = req.body
 
-        const newSaleProduct = await VentaProducto.create({
+        const newSaleProduct = await Ventamedicamento.create({
             clienteId:clienteId,
-            productoId:productoId,
+            medicamentoId:medicamentoId,
             dirrecion:dirrecion,
             valor_total:valor_total
         })
         return res.status(200).json({
-            msg:'Venta de producto creada correctamente.',
-            VentaProducto:newSaleProduct
+            msg:'Venta de medicamento creada correctamente.',
+            Ventamedicamento:newSaleProduct
         })
     }catch(error){
         return res.status(500).json({
-            msg:'Error al crear la Venta de Producto',
+            msg:'Error al crear la Venta de medicamento',
             error: error
         })
     }

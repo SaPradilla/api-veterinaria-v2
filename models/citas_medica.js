@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'clienteId'
       })
       // M:1 pertenece
-      citas_medica.belongsTo(models.perfil_mascota,{
-        foreignKey:'perfil_mascotaId'
+      citas_medica.belongsTo(models.mascota,{
+        foreignKey:'mascotaId'
       })
       // 1:1
       citas_medica.belongsTo(models.servicio,{
@@ -27,7 +27,11 @@ module.exports = (sequelize, DataTypes) => {
   citas_medica.init({
     clienteId: DataTypes.INTEGER,
     tipo_cita: DataTypes.INTEGER,
-    perfil_mascotaId: DataTypes.INTEGER
+    mascotaId: DataTypes.INTEGER
+    // Fecha de la cita
+    // Consultorio
+    // Estado
+    // Descripcion
   }, {
     sequelize,
     modelName: 'citas_medica',

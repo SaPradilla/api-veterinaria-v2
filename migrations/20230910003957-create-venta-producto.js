@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('venta_productos', {
+    await queryInterface.createTable('venta_medicamentos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -18,10 +18,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      productoId: {
+      medicamentoId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'productos',
+          model:'medicamentos',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -44,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('venta_productos');
+    await queryInterface.dropTable('venta_medicamentos');
   }
 };

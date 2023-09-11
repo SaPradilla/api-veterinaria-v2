@@ -4,10 +4,10 @@ const ClinicalHistory = db.historias_clinica
 const UpdateClinicalHistory = async(req,res) =>{
     try{
         const {id} = req.params
-        const {perfil_mascotaId,antecedentes_medicos,lesiones,patologias_vigentes,patologias_superadas,estado_nutricional,historial_comportamiento} = req.body
+        const {mascotaId,antecedentes_medicos,lesiones,patologias_vigentes,patologias_superadas,estado_nutricional,historial_comportamiento} = req.body
 
         const updateClinicalHistory = await ClinicalHistory.update({
-            perfil_mascotaId:perfil_mascotaId,
+            mascotaId:mascotaId,
             antecedentes_medicos:antecedentes_medicos,
             lesiones:lesiones,
             patologias_vigentes:patologias_vigentes,

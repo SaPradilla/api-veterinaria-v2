@@ -2,12 +2,12 @@ const db = require('../models')
 const CitaMedica = db.citas_medica
 const CreateMedicalAppointment = async(req,res) =>{
     try{
-        const {clienteId,tipo_cita,perfil_mascotaId} = req.body
+        const {clienteId,tipo_cita,mascotaId} = req.body
 
         const newMedicalAppointment = await CitaMedica.create({
             clienteId:clienteId,
             tipo_cita:tipo_cita,
-            perfil_mascotaId:perfil_mascotaId
+            mascotaId:mascotaId
 
         })
         return res.status(200).json({

@@ -1,30 +1,30 @@
 const db = require('../models')
-const Usuario = db.usuario
+const empleado = db.empleado
 
 const ReadIdUser = async(req,res)=>{
     try{
         const {id} = req.params
 
-        const findUser = await Usuario.findAll({
+        const findUser = await empleado.findAll({
             where:{
                 id
             }
         })
         if(findUser.length !== 0){
             return res.status(200).json({
-                msg:'Usuarios visualizado correctamente',
+                msg:'empleados visualizado correctamente',
                 user: findUser
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontró el usuario.',
+                msg:'No se encontró el empleado.',
                 user: findUser
             })
         }
     } catch(error){
         
         return res.status(500).json({
-            msg:'Hubo un error al visualizar el usuario',
+            msg:'Hubo un error al visualizar el empleado',
             error:error
         })
     }
@@ -32,7 +32,7 @@ const ReadIdUser = async(req,res)=>{
 const ReadIdMedical = async(req,res)=>{
     try{
         const {id} = req.params
-        const findMedico = await Usuario.findAll({
+        const findMedico = await empleado.findAll({
             where:{
                 rol:'Médico',
                 id: id
@@ -61,7 +61,7 @@ const ReadIdMedical = async(req,res)=>{
 const ReadIdAuxiliaries = async(req,res)=>{
     try{
         const {id} = req.params
-        const findAxuliar = await Usuario.findAll({
+        const findAxuliar = await empleado.findAll({
             where:{
                 rol:'Auxiliar',
                 id:id
@@ -88,7 +88,7 @@ const ReadIdAuxiliaries = async(req,res)=>{
 const ReadIdReceptionists = async(req,res)=>{
     try{
         const {id} = req.params
-        const findRecepcionista = await Usuario.findAll({
+        const findRecepcionista = await empleado.findAll({
             where:{
                 rol:'Recepcionista',
                 id:id

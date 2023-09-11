@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'clienteId'
       })
       // // 1:1
-      // rastreo.belongsTo(models.perfil_mascota,{
-      //   foreignKey:'perfil_mascotaId'
+      // rastreo.belongsTo(models.mascota,{
+      //   foreignKey:'mascotaId'
       // })
 
     }

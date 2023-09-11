@@ -3,10 +3,10 @@ const Cirugia = db.cirugia
 const UpdateSurgery = async(req,res) =>{
     try{
         const {id} = req.params
-        const {procedimiento,perfil_mascotaId,medicoId} = req.body
+        const {procedimiento,mascotaId,medicoId} = req.body
         const updateSurgery = await Cirugia.update({
             procedimiento:procedimiento,
-            perfil_mascotaId:perfil_mascotaId,
+            mascotaId:mascotaId,
             medicoId:medicoId
         },{
             where:{

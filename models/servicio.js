@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
   servicio.init({
     nombre:DataTypes.STRING,
     costo:DataTypes.INTEGER
-    // tipo_servicio: DataTypes.ENUM('Salon de belleza','Consultas','Urgencias','Farmacia','Spa','Vacunación','Desparasitación','Esterilización','Guardería','Funeraria','Cirugías','Certificados','Carné','Microship','Examenes Medicos','Oftalmología','Odontologia'),
   }, {
     sequelize,
     modelName: 'servicio',

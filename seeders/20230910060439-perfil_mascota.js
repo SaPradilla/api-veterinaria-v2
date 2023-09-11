@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('perfil_mascota', [{
+    await queryInterface.bulkInsert('mascotas', [{
 
       medicamentos: "Antibioticos",
       nombre: "Wally",
@@ -27,6 +27,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('perfil_mascota', null, {});
+    await queryInterface.bulkDelete('mascotas', null, {});
   }
 };

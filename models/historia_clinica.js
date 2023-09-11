@@ -11,20 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:1
-      historias_clinica.belongsTo(models.perfil_mascota,{
-        foreignKey:'perfil_mascotaId'
+      historias_clinica.belongsTo(models.mascota,{
+        foreignKey:'mascotaId'
       })
     }
   }
   historias_clinica.init({
-    perfil_mascotaId: DataTypes.INTEGER,
+    mascotaId: DataTypes.INTEGER,
+    clienteId:DataTypes.INTEGER,
     antecedentes_medicos: DataTypes.STRING,
     lesiones: DataTypes.STRING,
     patologias_vigentes: DataTypes.STRING,
     patologias_superadas: DataTypes.STRING,
     estado_nutricional: DataTypes.STRING,
     historial_comportamiento: DataTypes.STRING,
-    isActive: DataTypes.BOOLEAN
+    isActive: DataTypes.BOOLEAN,
+    // Cliente
+    // Diagnostico - tabla aparte
+    // fecha
   }, {
     sequelize,
     modelName: 'historias_clinica',

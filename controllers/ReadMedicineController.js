@@ -1,11 +1,11 @@
 const db = require('../models')
-const Producto = db.producto
+const medicamento = db.medicamento
 
-const ReadAllProduct = async(req,res)=>{
+const ReadAllMedicine = async(req,res)=>{
     try{
-        const FindProduct = await Producto.findAll({
+        const FindProduct = await medicamento.findAll({
             include:[{
-                model:db.venta_producto
+                model:db.venta_medicamento
             },{
                 model:db.venta_servicio
             }
@@ -13,18 +13,18 @@ const ReadAllProduct = async(req,res)=>{
         })
         if(FindProduct.length !== 0){
             return res.status(200).json({
-                msg:'Productos visualizados correctamente',
-                Productos: FindProduct
+                msg:'medicamentos visualizados correctamente',
+                medicamentos: FindProduct
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontraron Productos',
+                msg:'No se encontraron medicamentos',
             })
         }
     } catch(error){
-        
+
         return res.status(500).json({
-            msg:'Hubo un error al visualizar los Productos.',
+            msg:'Hubo un error al visualizar los medicamentos.',
             error:error
         })
     }
@@ -33,12 +33,12 @@ const ReadIdProduct = async(req,res)=>{
     try{
         const {id} = req.params
 
-        const FindProduct = await Producto.findAll({
+        const FindProduct = await medicamento.findAll({
             where:{
                 id:id
             },
             include:[{
-                model:db.venta_producto
+                model:db.venta_medicamento
             },{
                 model:db.venta_servicio
             }
@@ -47,19 +47,19 @@ const ReadIdProduct = async(req,res)=>{
         })
         if(FindProduct.length !== 0){
             return res.status(200).json({
-                msg:'Producto visualizado correctamente',
-                Producto: FindProduct
+                msg:'medicamento visualizado correctamente',
+                medicamento: FindProduct
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontró el Producto'
+                msg:'No se encontró el medicamento'
             })
         }
     }catch(error){
         return res.status(500).json({
-            msg:'Hubo un error al visualizar el Producto',
+            msg:'Hubo un error al visualizar el medicamento',
             error:error
         })
     }
 }
-module.exports = {ReadAllProduct,ReadIdProduct}
+module.exports = {ReadAllMedicine,ReadIdProduct}

@@ -9,10 +9,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      perfil_mascotaId: {
+      mascotaId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'perfil_mascota',
+          model:'mascotas',
           key: 'id'
         },
         onUpdate: 'CASCADE',

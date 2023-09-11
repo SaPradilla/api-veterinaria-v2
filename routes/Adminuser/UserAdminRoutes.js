@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const CreateUser = require('../../controllers/CreateUserController')
+const CreateUser = require('../../controllers/CreateEmployeeController')
 const CreatePet = require('../../controllers/CreatePetProfileController')
 const CreateService = require('../../controllers/CreateServicesController')
 const CreateClient = require('../../controllers/CreateClientController')
@@ -9,19 +9,19 @@ const CreateMedicalAppointment = require('../../controllers/CreateMedicalAppoint
 const CreateSurgery = require('../../controllers/CreateSurgeryController')
 const CreateClinicalHistory = require('../../controllers/CreateClinicalHistory')
 const CreateTracking = require('../../controllers/CreateTrackingController')
-const CreateProduct = require('../../controllers/CreateProductController')
+const CreateProduct = require('../../controllers/CreateMedicineController')
 const CreateSaleProduct = require('../../controllers/CreateProductSaleController')
 const CreateSaleService = require('../../controllers/CreateServiceSaleController')
 const CreatePqr = require('../../controllers/CreatePQRController')
 
-const ReadIdUsers = require('../../controllers/ReadIdUserController')
-const ReadAllUsers = require('../../controllers/ReadAllUserController')
+const ReadIdUsers = require('../../controllers/ReadIdEmployeeController')
+const ReadAllUsers = require('../../controllers/ReadAllEmployeeController')
 const ReadPetProfile = require('../../controllers/ReadPetProfileController')
 const ReadClient = require('../../controllers/ReadClienteController')
 const ReadMedicalAppointment = require('../../controllers/ReadMedicalAppointment')
 const ReadSurgery = require('../../controllers/ReadSurgeryController')
 const ReadSales = require('../../controllers/ReadSalesController')
-const ReadProduct = require('../../controllers/ReadProductController')
+const ReadProduct = require('../../controllers/ReadMedicineController')
 const ReadService = require('../../controllers/ReadServicesController')
 const ReadPqr = require('../../controllers/ReadPQRController')
 
@@ -30,12 +30,12 @@ const UpdateClinicalHistory = require('../../controllers/UpdateClinicalHistoryCo
 const UpdateMedicalAppointment = require('../../controllers/UpdateMedicalAppointmentController')
 const UpdatePetProfileController = require('../../controllers/UpdatePetProfileController')
 const UpdatePQR = require('../../controllers/UpdatePQRController')
-const UpdateProduct = require('../../controllers/UpdateProductController')
+const UpdateProduct = require('../../controllers/UpdateMedicineController')
 const UpdateSaleProduct = require('../../controllers/UpdateProductSaleController')
 const UpdateServiceSale = require('../../controllers/UpdateServiceSaleController')
 const UpdateService = require('../../controllers/UpdateServicesController')
 const UpdateSurgery = require('../../controllers/UpdateSurgeryController')
-const UpdateUser = require('../../controllers/UpdateUserController')
+const UpdateUser = require('../../controllers/UpdateEmployeeController')
 
 
 router  
@@ -88,7 +88,6 @@ router
     .get('/list/users/all',ReadAllUsers.ReadAllUser)
     .get('/list/pet/all',ReadPetProfile.ReadAllPetProfile)
     .get('/list/clients/all',ReadClient.ReadAllClient)
-
     .get('/list/medical-appointment/all',ReadMedicalAppointment.ReadAllMedicalAppointment)
     .get('/list/surgery/all',ReadSurgery.ReadAllSurgery)
     .get('/list/sales/product/all',ReadSales.ReadAllProductSale)
@@ -96,6 +95,6 @@ router
     .get('/list/product/all',ReadProduct.ReadAllProduct)
     .get('/list/service/all',ReadService.ReadAllService)
     .get('/list/pqr/all',ReadPqr.ReadAllPQR)
-    
+
 
 module.exports = router

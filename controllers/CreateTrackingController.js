@@ -4,11 +4,11 @@ const Rastreo = db.rastreo
 const CreateTracking = async(req,res) =>{
     try{
 
-        const {clienteId,perfil_mascotaId} = req.body
+        const {clienteId,mascotaId} = req.body
 
         const newTracking = await Rastreo.create({
             clienteId:clienteId,
-            perfil_mascotaId:perfil_mascotaId
+            mascotaId:mascotaId
         })
         return res.status(200).json({
             msg:'Rastro creado correctamente.',

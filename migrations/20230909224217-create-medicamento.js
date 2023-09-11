@@ -2,27 +2,31 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('carnets', {
+    await queryInterface.createTable('medicamentos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre: {
-        type: Sequelize.STRING
-      },
-      celular_contacto: {
-        type: Sequelize.STRING
-      },
-      mascotaId:{
-        type:Sequelize.INTEGER,
+      tipo_productoId: {
+        type: Sequelize.INTEGER,
         references:{
-          model:'mascotas',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+          model:'tipo_productos',
+          key:'id'
+        }
+      },
+      precio: {
+        type: Sequelize.INTEGER
+      },
+      unidades: {
+        type: Sequelize.INTEGER
+      },
+      volumen: {
+        type: Sequelize.STRING
+      },
+      fecha_venciminentoId: {
+        type:Sequelize.DATE
       },
       isActive: {
         type: Sequelize.BOOLEAN
@@ -38,6 +42,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('carnets');
+    await queryInterface.dropTable('medicamentos');
   }
 };

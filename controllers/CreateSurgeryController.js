@@ -1,16 +1,16 @@
 const db = require('../models')
 const Cirugia = db.cirugia
-const Usuario = db.usuario
+const empleado = db.empleado
 const CreateSurgery = async(req,res) =>{
     try{
-        const {procedimiento,perfil_mascotaId,medicoId} = req.body
+        const {procedimiento,mascotaId,medicoId} = req.body
     
-        const findMedical = await Usuario.findByPk(medicoId)
+        const findMedical = await empleado.findByPk(medicoId)
 
         if(findMedical.rol === 'Médico'){
             const newSurgery = await Cirugia.create({
                 procedimiento:procedimiento,
-                perfil_mascotaId:perfil_mascotaId,
+                mascotaId:mascotaId,
                 medicoId:medicoId
     
             })
@@ -20,7 +20,7 @@ const CreateSurgery = async(req,res) =>{
             })
         }else{
             return res.status(401).json({
-                msg:'El usuario no es médico, una cirigua debe tener al menos un médico.'
+                msg:'El empleado no es médico, una cirigua debe tener al menos un médico.'
             })
         }
     }catch(error){

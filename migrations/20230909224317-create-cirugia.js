@@ -12,10 +12,10 @@ module.exports = {
       procedimiento: {
         type: Sequelize.STRING
       },
-      perfil_mascotaId: {
+      mascotaId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'perfil_mascota',
+          model:'mascotas',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -24,7 +24,7 @@ module.exports = {
       medicoId:{
         type:Sequelize.INTEGER,
         references:{
-          model:'usuarios',
+          model:'empleados',
           key: 'id'
         },
         onUpdate: 'CASCADE',

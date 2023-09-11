@@ -3,11 +3,11 @@ const CitaMedica = db.citas_medica
 const UpdateMedicalAppointment = async(req,res) =>{
     try{
         const {id} = req.params
-        const {clienteId,tipo_cita,perfil_mascotaId} = req.body
+        const {clienteId,tipo_cita,mascotaId} = req.body
         const updateMedicalAppointment = await CitaMedica.update({
             clienteId:clienteId,
             tipo_cita:tipo_cita,
-            perfil_mascotaId:perfil_mascotaId
+            mascotaId:mascotaId
         },{
             where:{
                 id

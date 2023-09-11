@@ -1,13 +1,13 @@
 const db = require('../models')
-const VentaProducto = db.venta_producto
+const Ventamedicamento = db.venta_medicamento
 const VentaServicio = db.venta_servicio
 
 
 const ReadAllProductSale = async(req,res)=>{
     try{
-        const FindSaleProduct = await VentaProducto.findAll({
+        const FindSaleProduct = await Ventamedicamento.findAll({
             include:[{
-                model:db.producto
+                model:db.medicamento
             },{
                 model:db.cliente
             }
@@ -15,18 +15,18 @@ const ReadAllProductSale = async(req,res)=>{
         })
         if(FindSaleProduct.length !== 0){
             return res.status(200).json({
-                msg:'Ventas de productos visualizadas correctamente',
-                VentaProducto: FindSaleProduct
+                msg:'Ventas de medicamentos visualizadas correctamente',
+                Ventamedicamento: FindSaleProduct
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontraron ventas de productos'
+                msg:'No se encontraron ventas de medicamentos'
             })
         }
     } catch(error){
         
         return res.status(500).json({
-            msg:'Hubo un error al visualizar las ventas de productos.',
+            msg:'Hubo un error al visualizar las ventas de medicamentos.',
             error:error
         })
     }
@@ -35,12 +35,12 @@ const ReadIdProductSale = async(req,res)=>{
     try{
         const {id} = req.params
 
-        const FindSaleProduct = await VentaProducto.findAll({
+        const FindSaleProduct = await Ventamedicamento.findAll({
             where:{
                 id:id
             },
             include:[{
-                model:db.producto
+                model:db.medicamento
             },{
                 model:db.cliente
             }
@@ -49,17 +49,17 @@ const ReadIdProductSale = async(req,res)=>{
         })
         if(FindSaleProduct.length !== 0){
             return res.status(200).json({
-                msg:'Venta de producto visualizada correctamente',
-                VentaProducto: FindSaleProduct
+                msg:'Venta de medicamento visualizada correctamente',
+                Ventamedicamento: FindSaleProduct
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontró la venta de producto'
+                msg:'No se encontró la venta de medicamento'
             })
         }
     }catch(error){
         return res.status(500).json({
-            msg:'Hubo un error al visualizar la venta de producto',
+            msg:'Hubo un error al visualizar la venta de medicamento',
             error:error
         })
     }

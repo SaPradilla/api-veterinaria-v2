@@ -1,14 +1,14 @@
 const db = require('../models')
-const VentaProducto = db.venta_producto
+const Ventamedicamento = db.venta_medicamento
 
 const UpdateSalesProduct = async(req,res) =>{
     try{
         const {id} = req.params
-        const {clienteId,productoId,dirrecion,valor_total} = req.body
+        const {clienteId,medicamentoId,dirrecion,valor_total} = req.body
 
-        const updateSaleProduct = await VentaProducto.update({
+        const updateSaleProduct = await Ventamedicamento.update({
             clienteId:clienteId,
-            productoId:productoId,
+            medicamentoId:medicamentoId,
             dirrecion:dirrecion,
             valor_total:valor_total
         },{
@@ -18,16 +18,16 @@ const UpdateSalesProduct = async(req,res) =>{
         })
         if(updateSaleProduct != 0){
             return res.status(200).json({
-                msg:'Venta de producto editada correctamente.'
+                msg:'Venta de medicamento editada correctamente.'
             })
         }else{
             return res.status(404).json({
-                msg:'Id de la venta de producto no se encontró, No se pudo editar correctamente.'
+                msg:'Id de la venta de medicamento no se encontró, No se pudo editar correctamente.'
             })
         }
     }catch(error){
         return res.status(500).json({
-            msg:'Error al editar la Venta de Producto',
+            msg:'Error al editar la Venta de medicamento',
             error: error
         })
     }

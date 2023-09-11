@@ -7,7 +7,7 @@ const ReadAllMedicalAppointment = async(req,res)=>{
             include:[{
                 model:db.cliente
             },{
-                model:db.perfil_mascota
+                model:db.mascota
             },{
                 model:db.servicio
             }
@@ -42,7 +42,7 @@ const ReadIdMedicalAppointment = async(req,res)=>{
             include:[{
                 model:db.cliente
             },{
-                model:db.perfil_mascota
+                model:db.mascota
             },{
                 model:db.servicio
             }

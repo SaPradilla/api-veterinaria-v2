@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('carnets', {
+    await queryInterface.createTable('tipo_productos', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,21 +11,6 @@ module.exports = {
       },
       nombre: {
         type: Sequelize.STRING
-      },
-      celular_contacto: {
-        type: Sequelize.STRING
-      },
-      mascotaId:{
-        type:Sequelize.INTEGER,
-        references:{
-          model:'mascotas',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
-      isActive: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -38,6 +23,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('carnets');
+    await queryInterface.dropTable('tipo_productos');
   }
 };

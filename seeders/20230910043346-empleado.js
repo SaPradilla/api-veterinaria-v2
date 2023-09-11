@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('usuarios', [{
+    await queryInterface.bulkInsert('empleados', [{
 
       nombre: "Andrés",
       apellido: "Lopez",
@@ -12,7 +12,7 @@ module.exports = {
       email: "andres@correo",
       fecha_nacimiento: "2001-09-10",
       rol: "Médico",
-      contraseña: "andres12345",
+      contrasena: "andres12345",
       updatedAt:new Date(),
       createdAt:new Date() 
     },
@@ -24,7 +24,7 @@ module.exports = {
       email: "laurita@correo",
       fecha_nacimiento: "1985-09-10",
       rol: "Recepcionista",
-      contraseña: "laurita1",
+      contrasena: "laurita1",
       updatedAt:new Date(),
       createdAt:new Date() 
     },
@@ -36,7 +36,7 @@ module.exports = {
       email: "alexis123@correo",
       fecha_nacimiento: "1996-09-10",
       rol: "Auxiliar",
-      contraseña: "aleva123",
+      contrasena: "aleva123",
       updatedAt:new Date(),
       createdAt:new Date() 
     }
@@ -45,6 +45,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('usuarios', null, {});
+    await queryInterface.bulkDelete('empleados', null, {});
   }
 };

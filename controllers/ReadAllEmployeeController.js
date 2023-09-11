@@ -1,31 +1,31 @@
 const db = require('../models')
-const Usuario = db.usuario
+const empleado = db.empleado
 
 const ReadAllUser = async(req,res)=>{
     try{
-        const findUser = await Usuario.findAll()
+        const findUser = await empleado.findAll()
         if(findUser.length !== 0){
             return res.status(200).json({
-                msg:'Usuarios visualizados correctamente',
+                msg:'empleados visualizados correctamente',
                 user: findUser
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontraron usuarios.',
+                msg:'No se encontraron empleados.',
                 user: findUser
             })
         }
     } catch(error){
         
         return res.status(500).json({
-            msg:'Hubo un error al visualizar los usuarios',
+            msg:'Hubo un error al visualizar los empleados',
             error:error
         })
     }
 }
 const ReadAllMedical = async(req,res)=>{
     try{
-        const findMedico = await Usuario.findAll({
+        const findMedico = await empleado.findAll({
             where:{
                 rol:'Médico'
             },include:[{
@@ -52,7 +52,7 @@ const ReadAllMedical = async(req,res)=>{
 }
 const ReadAllAuxiliaries = async(req,res)=>{
     try{
-        const findAxuliar = await Usuario.findAll({where:{
+        const findAxuliar = await empleado.findAll({where:{
             rol:'Auxiliar'
         }})
         if(findAxuliar.length !== 0){
@@ -75,7 +75,7 @@ const ReadAllAuxiliaries = async(req,res)=>{
 }
 const ReadAllReceptionists = async(req,res)=>{
     try{
-        const findRecepcionista = await Usuario.findAll({where:{
+        const findRecepcionista = await empleado.findAll({where:{
             rol:'Recepcionista'
         }})
         if(findRecepcionista.length !== 0){

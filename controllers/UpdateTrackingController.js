@@ -4,11 +4,11 @@ const Rastreo = db.rastreo
 const UpdateTracking = async(req,res) =>{
     try{
         const {id} = req.params
-        const {clienteId,perfil_mascotaId} = req.body
+        const {clienteId,mascotaId} = req.body
 
         const updateTracking = await Rastreo.update({
             clienteId:clienteId,
-            perfil_mascotaId:perfil_mascotaId
+            mascotaId:mascotaId
         },{
             where:{
                 id

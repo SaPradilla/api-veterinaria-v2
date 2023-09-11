@@ -11,15 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:1
-      carnet.belongsTo(models.perfil_mascota,{
-        foreignKey:'perfil_mascotaId'
+      carnet.belongsTo(models.mascota,{
+        foreignKey:'mascotaId'
       })
     }
   }
   carnet.init({
     nombre: DataTypes.STRING,
     celular_contacto: DataTypes.STRING,
-    perfil_mascotaId: DataTypes.INTEGER,
+    mascotaId: DataTypes.INTEGER,
     isActive: DataTypes.BOOLEAN
   }, {
     sequelize,

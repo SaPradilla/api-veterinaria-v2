@@ -27,10 +27,10 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      perfil_mascotaId: {
+      mascotaId: {
         type: Sequelize.INTEGER,
         references:{
-          model:'perfil_mascota',
+          model:'mascotas',
           key: 'id'
         },
         onUpdate: 'CASCADE',

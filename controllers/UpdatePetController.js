@@ -1,5 +1,5 @@
 const db = require('../models')
-const perfilMascota = db.perfil_mascota
+const perfilMascota = db.mascota
 
 const UpdatePetProfile = async(req,res) =>{
     try{

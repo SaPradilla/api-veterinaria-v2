@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:M 
-      cliente.hasMany(models.perfil_mascota,{
+      cliente.hasMany(models.mascota,{
         foreignKey:'clienteId'
       })
       // 1:M
@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'clienteId'
       })
       // 1-M 
-      cliente.hasMany(models.venta_producto,{
+      cliente.hasMany(models.venta_medicamento,{
         foreignKey:'clienteId'
       })
       // 1-M
@@ -44,6 +44,7 @@ module.exports = (sequelize, DataTypes) => {
     numero_celular: DataTypes.STRING,
     email: DataTypes.STRING,
     direccion: DataTypes.STRING,
+    contrasena:DataTypes.STRING
   }, {
     sequelize,
     modelName: 'cliente',
