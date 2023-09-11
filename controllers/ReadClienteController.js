@@ -27,8 +27,7 @@ const ReadAllClient = async(req,res)=>{
             })
         }else{
             return res.status(404).json({
-                msg:'No se encontraron clientes',
-                user: FindClient
+                msg:'No se encontraron clientes'
             })
         }
     } catch(error){
