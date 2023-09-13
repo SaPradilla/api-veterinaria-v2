@@ -12,7 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // 1:1
       empleado.hasOne(models.cirugia,{
-      foreignKey:'medicoId'
+        foreignKey:'medicoId'
+      })
+      empleado.hasMany(models.citas_medicas,{
+        foreignKey:'empleadoId'
+      })
+      empleado.hasMany(models.cirugia,{
+        foreignKey:'empleadoId'
       })
     }
   }
@@ -22,7 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     numero_celular: DataTypes.STRING,
     email: DataTypes.STRING,
     direccion: DataTypes.STRING,
-    fecha_nacimiento: DataTypes.DATE,
     rol: DataTypes.ENUM('Recepcionista','Médico','Auxiliar'),
     isAdmin:DataTypes.BOOLEAN,
     isActive:DataTypes.BOOLEAN,

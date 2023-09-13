@@ -36,6 +36,15 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      fecha_cita:{
+        type:Sequelize.DATE
+      },
+      consultorio:{
+        type: Sequelize.STRING
+      },
+      descripcion:{
+        type:Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -13,7 +13,7 @@ const ReadAllClient = async(req,res)=>{
             },{
                 model:db.rastreo
             },{
-                model:db.venta_medicamento
+                model:db.venta_producto
             },{
                 model:db.venta_servicio
             }
@@ -54,7 +54,7 @@ const ReadIdClient = async(req,res)=>{
             },{
                 model:db.rastreo
             },{
-                model:db.venta_medicamento
+                model:db.venta_producto
             },{
                 model:db.venta_servicio
             }

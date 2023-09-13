@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'clienteId'
       })
       // 1-M 
-      cliente.hasMany(models.venta_medicamento,{
+      cliente.hasMany(models.venta_producto,{
         foreignKey:'clienteId'
       })
       // 1-M

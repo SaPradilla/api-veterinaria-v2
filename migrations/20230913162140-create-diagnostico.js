@@ -2,29 +2,21 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('rastreos', {
+    await queryInterface.createTable('diagnosticos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      clienteId: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:'clientes',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+      tratamiento: {
+        type: Sequelize.STRING
       },
-      estado:{
-        type:Sequelize.BOOLEAN,
-        defaultValue:true
+      diagnostico: {
+        type: Sequelize.STRING
       },
-      isActive:{
-        type: Sequelize.BOOLEAN,
-        defaultValue:true
+      empleadoId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +29,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('rastreos');
+    await queryInterface.dropTable('diagnosticos');
   }
 };

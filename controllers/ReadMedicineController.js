@@ -5,7 +5,7 @@ const ReadAllMedicine = async(req,res)=>{
     try{
         const FindProduct = await medicamento.findAll({
             include:[{
-                model:db.venta_medicamento
+                model:db.venta_producto
             },{
                 model:db.venta_servicio
             }
@@ -38,7 +38,7 @@ const ReadIdProduct = async(req,res)=>{
                 id:id
             },
             include:[{
-                model:db.venta_medicamento
+                model:db.venta_producto
             },{
                 model:db.venta_servicio
             }

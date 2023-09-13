@@ -1,5 +1,5 @@
 const db = require('../models')
-const Ventamedicamento = db.venta_medicamento
+const Ventamedicamento = db.venta_producto
 
 const CreateSalesProduct = async(req,res) =>{
     try{

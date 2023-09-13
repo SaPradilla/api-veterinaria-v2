@@ -1,4 +1,7 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -21,10 +24,22 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      medicoId:{
+      empleadoId:{
         type:Sequelize.INTEGER,
         references:{
           model:'empleados',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      costo:{
+        type: Sequelize.INTEGER
+      },
+      cita_medicaId:{
+        type:Sequelize.INTEGER,
+        references:{
+          model:'citas_medicas',
           key: 'id'
         },
         onUpdate: 'CASCADE',

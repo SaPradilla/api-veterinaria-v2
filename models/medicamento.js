@@ -11,12 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:M
-      medicamento.hasMany(models.venta_medicamento,{
+      medicamento.hasMany(models.venta_producto,{
         foreignKey:'medicamentoId'
       })
       // 1:M
       medicamento.hasMany(models.venta_servicio,{
         foreignKey:'servicioId'
+      })
+      // M:1
+      medicamento.belongsTo(models.tipo_producto,{
+        foreignKey:'tipo_productoId'
       })
     }
   }
@@ -27,7 +31,6 @@ module.exports = (sequelize, DataTypes) => {
     unidades: DataTypes.INTEGER,
     volumen: DataTypes.STRING,
     fecha_venciminento: DataTypes.DATE,
-    isActive:DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'medicamento',

@@ -20,7 +20,9 @@ module.exports = {
         references:{
           model:'tipo_productos',
           key:'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       descripcion: {
         type: Sequelize.STRING

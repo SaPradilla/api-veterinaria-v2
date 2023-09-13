@@ -1,11 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "",
+    "username": "pradev",
+    "password": "sena123",
     "database": "veterinaria",
-    "dialect": "mysql",
-    "host":"127.0.0.1",
-    "port":3307
+    "dialect": "mysql"
   },
   "test": {
     "username": "pradi",

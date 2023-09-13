@@ -24,9 +24,6 @@ module.exports = {
       direccion: {
         type: Sequelize.STRING
       },
-      fecha_nacimiento: {
-        type: Sequelize.DATE
-      },
       rol: {
         type: Sequelize.ENUM('Recepcionista','Médico','Auxiliar')
       },

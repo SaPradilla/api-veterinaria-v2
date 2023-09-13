@@ -38,16 +38,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   mascota.init({
     nombre: DataTypes.STRING,
-    numero_contacto: DataTypes.STRING,
     tipo_mascota: DataTypes.ENUM('Perro','Gato','Hámster','Ave','Pez','Reptil','Invertebrado','Conejo'),
     edad: DataTypes.STRING,
     raza: DataTypes.STRING,
     genero: DataTypes.ENUM('Macho','Hembra'),
-    tamaño: DataTypes.STRING,
-    peso: DataTypes.STRING,
-    tratamiento: DataTypes.STRING,
-    formula_medica: DataTypes.STRING,
-    diagnostico: DataTypes.STRING,
+    diagnosticoId: DataTypes.STRING,
     vacunas: DataTypes.STRING,
     clienteId:DataTypes.INTEGER,
     isActive: DataTypes.BOOLEAN

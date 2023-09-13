@@ -9,20 +9,14 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      medicamentos: {
-        type: Sequelize.STRING
-      },
       nombre: {
-        type: Sequelize.STRING
-      },
-      numero_contacto: {
-        type: Sequelize.STRING
-      },
-      edad: {
         type: Sequelize.STRING
       },
       tipo_mascota: {
         type: Sequelize.ENUM('Perro','Gato','Hámster','Ave','Pez','Reptil','Invertebrado','Conejo')
+      },
+      edad: {
+        type: Sequelize.STRING
       },
       raza: {
         type: Sequelize.STRING
@@ -30,23 +24,14 @@ module.exports = {
       genero: {
         type: Sequelize.ENUM('Macho','Hembra')
       },
-      tamaño: {
-        type: Sequelize.STRING
-      },
-      patologias: {
-        type: Sequelize.STRING
-      },
-      peso: {
-        type: Sequelize.STRING
-      },
-      tratamiento: {
-        type: Sequelize.STRING
-      },
-      formula_medica: {
-        type: Sequelize.STRING
-      },
-      diagnostico: {
-        type: Sequelize.STRING
+      diagnosticoId: {
+        type: Sequelize.STRING,
+        references:{
+          model:'diagnosticos',
+          key:'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       vacunas: {
         type: Sequelize.STRING
@@ -63,6 +48,9 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+      },
+      isActive:{
+        type:Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

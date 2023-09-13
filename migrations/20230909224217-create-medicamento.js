@@ -14,7 +14,9 @@ module.exports = {
         references:{
           model:'tipo_productos',
           key:'id'
-        }
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       precio: {
         type: Sequelize.INTEGER
@@ -25,11 +27,8 @@ module.exports = {
       volumen: {
         type: Sequelize.STRING
       },
-      fecha_venciminentoId: {
+      fecha_venciminento: {
         type:Sequelize.DATE
-      },
-      isActive: {
-        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

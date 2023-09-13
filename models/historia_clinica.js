@@ -26,9 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     estado_nutricional: DataTypes.STRING,
     historial_comportamiento: DataTypes.STRING,
     isActive: DataTypes.BOOLEAN,
-    // Cliente
-    // Diagnostico - tabla aparte
-    // fecha
+    diagnosticoId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'historias_clinica',

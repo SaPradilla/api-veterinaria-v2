@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     clienteId: DataTypes.INTEGER,
     servicioId: DataTypes.INTEGER,
     valor_total: DataTypes.INTEGER,
-    cantidad:DataTypes.INTEGER
+    cantidad:DataTypes.INTEGER,
+    
   }, {
     sequelize,
     modelName: 'venta_servicio',
