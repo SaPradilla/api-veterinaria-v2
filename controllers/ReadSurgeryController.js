@@ -5,7 +5,7 @@ const ReadAllSurgery = async(req,res)=>{
     try{
         const FindCirugia = await Cirugia.findAll({
             include:[{
-                model:db.mascota
+                model:db.mascotas
             },{
                 model:db.empleado
             }
@@ -38,7 +38,7 @@ const ReadIdSurgery = async(req,res)=>{
                 id:id
             },
             include:[{
-                model:db.mascota
+                model:db.mascotas
             },{
                 model:db.empleado
             }

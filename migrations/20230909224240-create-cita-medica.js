@@ -36,11 +36,23 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
+      empleadoId:{
+        type:Sequelize.INTEGER,
+        references:{
+          model:'empleados',
+          key:'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       fecha_cita:{
         type:Sequelize.DATE
       },
       consultorio:{
         type: Sequelize.STRING
+      },
+      estado:{
+        type:Sequelize.ENUM('Programada', 'En proceso', 'Completada', 'Cancelada', 'Reprogramada')
       },
       descripcion:{
         type:Sequelize.STRING

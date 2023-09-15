@@ -5,13 +5,11 @@ const ReadAllClient = async(req,res)=>{
     try{
         const FindClient = await Cliente.findAll({
             include:[{
-                model:db.mascota
+                model:db.mascotas
             },{
                 model:db.citas_medica
             },{
                 model:db.pqr
-            },{
-                model:db.rastreo
             },{
                 model:db.venta_producto
             },{
@@ -46,13 +44,11 @@ const ReadIdClient = async(req,res)=>{
                 id:id
             },
             include:[{
-                model:db.mascota
+                model:db.mascotas
             },{
                 model:db.citas_medica
             },{
                 model:db.pqr
-            },{
-                model:db.rastreo
             },{
                 model:db.venta_producto
             },{

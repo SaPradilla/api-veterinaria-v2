@@ -11,14 +11,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:1
-      historias_clinica.belongsTo(models.mascota,{
+      historias_clinica.belongsTo(models.mascotas,{
         foreignKey:'mascotaId'
+      })
+      // 
+      historias_clinica.belongsTo(models.diagnostico,{
+        foreignKey:'diagnosticoId'
       })
     }
   }
   historias_clinica.init({
     mascotaId: DataTypes.INTEGER,
-    clienteId:DataTypes.INTEGER,
     antecedentes_medicos: DataTypes.STRING,
     lesiones: DataTypes.STRING,
     patologias_vigentes: DataTypes.STRING,

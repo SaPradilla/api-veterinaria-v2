@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.ENUM('Macho','Hembra')
       },
       diagnosticoId: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         references:{
           model:'diagnosticos',
           key:'id'
@@ -48,9 +48,6 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
-      },
-      isActive:{
-        type:Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,

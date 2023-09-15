@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
      // 1:M - tiene
-      cirugia.belongsTo(models.mascota,{
+      cirugia.belongsTo(models.mascotas,{
         foreignKey:'mascotaId'
       })
       // RELACION DE MUCHOS A MUCHOS CREAR PIVOTE

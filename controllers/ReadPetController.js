@@ -1,5 +1,5 @@
 const db = require('../models')
-const perfilMascota = db.mascota
+const perfilMascota = db.mascotas
 
 const ReadAllPetProfile = async(req,res)=>{
     try{

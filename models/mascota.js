@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class mascota extends Model {
+  class mascotas extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,32 +11,24 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:M
-      mascota.belongsTo(models.cliente,{
+      mascotas.belongsTo(models.cliente,{
         foreignKey:'clienteId'
       })
       // M:1
-      mascota.hasMany(models.citas_medica,{
-        foreignKey:'mascotaId'
-      })
-      // 1:1
-      mascota.hasOne(models.historias_clinica,{
-        foreignKey:'mascotaId'
-      })
-      // M:1
-      mascota.hasMany(models.cirugia,{
+      mascotas.hasMany(models.citas_medica,{
         foreignKey:'mascotaId'
       })
       // // 1:1
-      // mascota.hasOne(models.rastreo,{
-      //   foreignKey:'mascotaId'
-      // })
-      // 1-1
-      mascota.hasOne(models.carnet,{
+      mascotas.hasOne(models.historias_clinica,{
+        foreignKey:'mascotaId'
+      })
+      // M:1
+      mascotas.hasMany(models.cirugia,{
         foreignKey:'mascotaId'
       })
     }
   }
-  mascota.init({
+  mascotas.init({
     nombre: DataTypes.STRING,
     tipo_mascota: DataTypes.ENUM('Perro','Gato','Hámster','Ave','Pez','Reptil','Invertebrado','Conejo'),
     edad: DataTypes.STRING,
@@ -48,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     isActive: DataTypes.BOOLEAN
   }, {
     sequelize,
-    modelName: 'mascota',
+    modelName: 'mascotas',
   });
-  return mascota;
+  return mascotas;
 };

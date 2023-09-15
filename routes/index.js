@@ -8,10 +8,8 @@ const routersList = [
         route:AdminUser
     }
 ]
-
 //En rutador
 routersList.forEach((route) =>{
     router.use(route.path, route.route)
 })
-
 module.exports = router

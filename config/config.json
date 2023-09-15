@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "pradev",
-    "password": "sena123",
+    "username": "root",
+    "password": "",
     "database": "veterinaria",
     "dialect": "mysql"
   },

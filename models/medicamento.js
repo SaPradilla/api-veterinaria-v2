@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       medicamento.belongsTo(models.tipo_producto,{
         foreignKey:'tipo_productoId'
       })
+      // 1:1
+      medicamento.hasOne(models.producto,{
+        foreignKey:'medicamentoId'
+      })
     }
   }
   medicamento.init({

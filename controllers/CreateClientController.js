@@ -1,9 +1,10 @@
 const db = require('../models')
 const Cliente = db.cliente
+const Encrypt = require('../middleware/auth')
 
 const CreateClient = async(req,res) =>{
     try{
-        const {nombre,apellido,numero_celular,email,direccion,contrasena} = req.body
+        const {nombre,apellido,numero_celular,email,direccion} = req.body
         const hash_contrasena = await Encrypt.cryptPassword(req.body.contrasena)
         const newClient = await Cliente.create({
             nombre:nombre,

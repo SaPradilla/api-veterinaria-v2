@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'clienteId'
       })
       // M:1 pertenece
-      citas_medica.belongsTo(models.mascota,{
+      citas_medica.belongsTo(models.mascotas,{
         foreignKey:'mascotaId'
       })
       // 1:1

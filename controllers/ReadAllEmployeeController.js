@@ -1,7 +1,7 @@
 const db = require('../models')
 const empleado = db.empleado
 
-const ReadAllUser = async(req,res)=>{
+const ReadAllEmployees = async(req,res)=>{
     try{
         const findUser = await empleado.findAll()
         if(findUser.length !== 0){
@@ -30,6 +30,8 @@ const ReadAllMedical = async(req,res)=>{
                 rol:'Médico'
             },include:[{
                 model:db.cirugia
+            },{
+                model:db.citas_medica
             }]
         })
         if(findMedico.length !== 0){
@@ -96,4 +98,4 @@ const ReadAllReceptionists = async(req,res)=>{
         })
     }
 }
-module.exports = {ReadAllUser,ReadAllMedical,ReadAllAuxiliaries,ReadAllReceptionists}
+module.exports = {ReadAllEmployees,ReadAllMedical,ReadAllAuxiliaries,ReadAllReceptionists}

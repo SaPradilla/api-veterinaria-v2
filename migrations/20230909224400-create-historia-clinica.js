@@ -40,6 +40,15 @@ module.exports = {
         type:Sequelize.BOOLEAN,
         defaultValue: true
       },
+      diagnosticoId:{
+        type:Sequelize.INTEGER,
+        references:{
+          model:'diagnosticos',
+          key:'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

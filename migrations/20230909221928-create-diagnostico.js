@@ -2,24 +2,24 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('carnets', {
+    await queryInterface.createTable('diagnosticos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre: {
+      tratamiento: {
         type: Sequelize.STRING
       },
-      celular_contacto: {
+      diagnostico: {
         type: Sequelize.STRING
       },
-      mascotaId:{
-        type:Sequelize.INTEGER,
+      empleadoId: {
+        type: Sequelize.INTEGER,
         references:{
-          model:'mascotas',
-          key: 'id'
+          model:'empleados',
+          key:'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
@@ -35,6 +35,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('carnets');
+    await queryInterface.dropTable('diagnosticos');
   }
 };

@@ -1,7 +1,7 @@
 const db = require('../models')
 const empleado = db.empleado
 
-const ReadIdUser = async(req,res)=>{
+const ReadIdEmployee = async(req,res)=>{
     try{
         const {id} = req.params
 
@@ -112,4 +112,4 @@ const ReadIdReceptionists = async(req,res)=>{
         })
     }
 }
-module.exports = {ReadIdUser,ReadIdMedical,ReadIdAuxiliaries,ReadIdReceptionists}
+module.exports = {ReadIdEmployee,ReadIdMedical,ReadIdAuxiliaries,ReadIdReceptionists}

@@ -1,20 +1,17 @@
 const db = require('../models')
-const perfilMascota = db.mascota
+const perfilMascota = db.mascotas
 
 const CreatePetProfile = async(req,res) =>{
     try{
-        const {medicamentos,nombre,numero_contacto,tipo_mascota,edad,raza,genero,tamaño,patologias,peso,tratamiento,formula_medica,diagnostico,vacunas,clienteId} = req.body
+        const {nombre,tipo_mascota,edad,raza,genero,diagnosticoId,vacunas,clienteId} = req.body
 
         const newPetProfile = await perfilMascota.create({
             nombre:nombre,
-            numero_contacto:numero_contacto,
             tipo_mascota:tipo_mascota,
             edad:edad,
             raza:raza,
             genero:genero,
-            peso:peso,
-            formula_medica:formula_medica,
-            diagnostico:diagnostico,
+            diagnosticoId:diagnosticoId,
             vacunas:vacunas,
             clienteId:clienteId
         })

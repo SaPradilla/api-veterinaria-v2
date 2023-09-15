@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // 1:M 
-      cliente.hasMany(models.mascota,{
+      cliente.hasMany(models.mascotas,{
         foreignKey:'clienteId'
       })
       // 1:M
@@ -21,10 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       })
       // 1:M
       cliente.hasMany(models.pqr,{
-        foreignKey:'clienteId'
-      })
-      // 1-1
-      cliente.hasOne(models.rastreo,{
         foreignKey:'clienteId'
       })
       // 1-M 
