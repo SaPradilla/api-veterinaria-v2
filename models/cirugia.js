@@ -10,22 +10,26 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-     // 1:M - tiene
+      // 1:M - tiene
       cirugia.belongsTo(models.mascotas,{
         foreignKey:'mascotaId'
       })
-      // RELACION DE MUCHOS A MUCHOS CREAR PIVOTE
-      // M:1 - tiene
-      cirugia.belongsTo(models.empleado,{
-        foreignKey:'empleadoId'
+      // Relacion N:M
+      cirugia.belongsToMany(models.empleado,{
+        through:'empleados_cirugia',
+        foreignKey:'cirugiaId'
+      })
+      // M:M
+      cirugia.hasMany(models.empleados_cirugia,{
+        // atravez de la tabla...
+        as:'CirugiasEmpleados',
+        foreignKey:'cirugiaId'
       })
     }
   }
   cirugia.init({
     procedimiento: DataTypes.STRING,
     mascotaId: DataTypes.INTEGER,
-    empleadoId: DataTypes.INTEGER,
-    costo:DataTypes.INTEGER,
     cita_medicaId:DataTypes.INTEGER
 
   }, {

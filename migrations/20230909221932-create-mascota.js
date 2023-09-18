@@ -24,30 +24,22 @@ module.exports = {
       genero: {
         type: Sequelize.ENUM('Macho','Hembra')
       },
-      diagnosticoId: {
-        type: Sequelize.INTEGER,
-        references:{
-          model:'diagnosticos',
-          key:'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
       vacunas: {
         type: Sequelize.STRING
       },
-      isActive:{
-        type:Sequelize.BOOLEAN,
-        defaultValue: true
-      },
       clienteId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'clientes',
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+      },
+      isActive:{
+        type:Sequelize.BOOLEAN,
+        defaultValue: true
       },
       createdAt: {
         allowNull: false,

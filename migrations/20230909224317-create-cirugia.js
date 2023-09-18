@@ -17,24 +17,13 @@ module.exports = {
       },
       mascotaId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'mascotas',
           key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
-      },
-      empleadoId:{
-        type:Sequelize.INTEGER,
-        references:{
-          model:'empleados',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
-      },
-      costo:{
-        type: Sequelize.INTEGER
       },
       cita_medicaId:{
         type:Sequelize.INTEGER,

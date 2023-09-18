@@ -14,13 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       medicamento.hasMany(models.venta_producto,{
         foreignKey:'medicamentoId'
       })
-      // 1:M
-      medicamento.hasMany(models.venta_servicio,{
-        foreignKey:'servicioId'
-      })
       // M:1
-      medicamento.belongsTo(models.tipo_producto,{
-        foreignKey:'tipo_productoId'
+      medicamento.belongsTo(models.tipo_medicina,{
+        foreignKey:'tipo_medicinaId'
       })
       // 1:1
       medicamento.hasOne(models.producto,{
@@ -30,9 +26,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   medicamento.init({
     // tipo_medicamento: DataTypes.ENUM('Antibióticos','Antiinflamatorios','Antiparasitario','Nutriente','Juguete','Alimentos','Asesorios','Higiene','Collares'),
-    tipo_productoId:DataTypes.INTEGER,
+    tipo_medicinaId:DataTypes.INTEGER,
     precio: DataTypes.INTEGER,
-    unidades: DataTypes.INTEGER,
     volumen: DataTypes.STRING,
     fecha_venciminento: DataTypes.DATE,
   }, {

@@ -26,6 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       mascotas.hasMany(models.cirugia,{
         foreignKey:'mascotaId'
       })
+      mascotas.hasMany(models.diagnostico,{
+        foreignKey:'mascotaId'
+      })
     }
   }
   mascotas.init({
@@ -34,7 +37,6 @@ module.exports = (sequelize, DataTypes) => {
     edad: DataTypes.STRING,
     raza: DataTypes.STRING,
     genero: DataTypes.ENUM('Macho','Hembra'),
-    diagnosticoId: DataTypes.STRING,
     vacunas: DataTypes.STRING,
     clienteId:DataTypes.INTEGER,
     isActive: DataTypes.BOOLEAN

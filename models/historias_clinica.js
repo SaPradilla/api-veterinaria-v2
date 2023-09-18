@@ -28,8 +28,6 @@ module.exports = (sequelize, DataTypes) => {
     patologias_superadas: DataTypes.STRING,
     estado_nutricional: DataTypes.STRING,
     historial_comportamiento: DataTypes.STRING,
-    isActive: DataTypes.BOOLEAN,
-    diagnosticoId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'historias_clinica',

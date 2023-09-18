@@ -23,6 +23,16 @@ module.exports = {
           key:'id'
         }
       },
+      cantidad_total:{
+        type: Sequelize.INTEGER
+      },
+      unidades_disponibles:{
+        type: Sequelize.INTEGER
+      },
+      estado:{
+        type: Sequelize.ENUM("Disponible","Agotado"),
+        defaultValue:'Disponible'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -11,6 +11,7 @@ module.exports = {
       },
       clienteId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'clientes',
           key: 'id'
@@ -20,6 +21,7 @@ module.exports = {
       },
       tipo_cita: {
         type:Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'servicios',
           key:'id'
@@ -29,6 +31,7 @@ module.exports = {
       },
       mascotaId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'mascotas',
           key: 'id'
@@ -52,7 +55,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       estado:{
-        type:Sequelize.ENUM('Programada', 'En proceso', 'Completada', 'Cancelada', 'Reprogramada')
+        type:Sequelize.ENUM('Programada', 'En proceso', 'Completada', 'Cancelada', 'Reprogramada'),
+        defaultValue:'Programada'
       },
       descripcion:{
         type:Sequelize.STRING

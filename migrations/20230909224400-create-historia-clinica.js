@@ -11,6 +11,7 @@ module.exports = {
       },
       mascotaId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
           model:'mascotas',
           key: 'id'
@@ -35,19 +36,6 @@ module.exports = {
       },
       historial_comportamiento: {
         type: Sequelize.STRING
-      },
-      isActive:{
-        type:Sequelize.BOOLEAN,
-        defaultValue: true
-      },
-      diagnosticoId:{
-        type:Sequelize.INTEGER,
-        references:{
-          model:'diagnosticos',
-          key:'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,

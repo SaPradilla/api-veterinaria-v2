@@ -14,7 +14,16 @@ module.exports = (sequelize, DataTypes) => {
       empleado.hasMany(models.citas_medica,{
         foreignKey:'empleadoId'
       })
-      empleado.hasMany(models.cirugia,{
+    
+      // Relacion N:M
+      empleado.belongsToMany(models.cirugia,{
+        through:'empleados_cirugia',
+        foreignKey:'empleadoId'
+      })
+      // M:M
+      empleado.hasMany(models.empleados_cirugia,{
+        // atravez de la tabla...
+        as:'CirugiasEmpleados',
         foreignKey:'empleadoId'
       })
     }

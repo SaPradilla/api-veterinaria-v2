@@ -9,19 +9,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      tipo_productoId: {
+      tipo_medicinaId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
-          model:'tipo_productos',
+          model:'tipo_medicinas',
           key:'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       precio: {
-        type: Sequelize.INTEGER
-      },
-      unidades: {
         type: Sequelize.INTEGER
       },
       volumen: {

@@ -14,12 +14,16 @@ module.exports = (sequelize, DataTypes) => {
       diagnostico.belongsTo(models.empleado,{
         foreignKey:'empleadoId'
       })
+      diagnostico.belongsTo(models.mascotas,{
+        foreignKey:'mascotaId'
+      })
     }
   }
   diagnostico.init({
     tratamiento: DataTypes.STRING,
     diagnostico: DataTypes.STRING,
-    empleadoId: DataTypes.INTEGER
+    empleadoId: DataTypes.INTEGER,
+    mascotaId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'diagnostico',

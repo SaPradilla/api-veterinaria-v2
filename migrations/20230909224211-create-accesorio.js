@@ -15,10 +15,11 @@ module.exports = {
       precio: {
         type: Sequelize.INTEGER
       },
-      tipo_productoId: {
+      tipo_accesorioId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references:{
-          model:'tipo_productos',
+          model:'tipo_accesorios',
           key:'id'
         },
         onUpdate: 'CASCADE',

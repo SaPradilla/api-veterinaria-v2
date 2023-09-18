@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       venta_producto.belongsTo(models.medicamento,{
         foreignKey:'medicamentoId'
       })
+      // 1:M - tiene
+      venta_producto.belongsTo(models.accesorio,{
+        foreignKey:'accesorioId'
+      })
       // 1-1 - tiene
       venta_producto.belongsTo(models.cliente,{
         foreignKey:'clienteId'
@@ -23,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   venta_producto.init({
     clienteId: DataTypes.STRING,
     medicamentoId: DataTypes.INTEGER,
+    accesorioId: DataTypes.INTEGER,
     valor_total: DataTypes.INTEGER,
     cantidad:DataTypes.INTEGER,
 

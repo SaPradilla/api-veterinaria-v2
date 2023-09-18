@@ -20,7 +20,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   producto.init({
     medicamentoId: DataTypes.INTEGER,
-    accesorioId: DataTypes.INTEGER
+    accesorioId: DataTypes.INTEGER,
+    // Cantidad total en el inventario
+    cantidad_total:DataTypes.INTEGER,
+    // Cantidad aun en stock
+    unidades_disponibles: DataTypes.INTEGER,
+    estado: DataTypes.ENUM("Disponible","Agotado")
   }, {
     sequelize,
     modelName: 'producto',
