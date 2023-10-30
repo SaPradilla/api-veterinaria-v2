@@ -14,9 +14,9 @@ const Routes = [
     {path:'/register/sales/service', controller: require('../../controllers/Sales/CreateServiceSaleController')},
     {path:'/register/pqr', controller: require('../../controllers/Pqr/CreatePQRController')},
     {path:'/register/diagnostico', controller: require('../../controllers/Diagnosis/CreateDiagnosis')},
-    {path:'/register/product/accessory', controller: require('../../controllers/CreateControllers/CreateAccessoryController')},
+    {path:'/register/product/accessory', controller: require('../../controllers/Product/Create').CreateAccessory},
     {path:'/register/type-medicine', controller: require('../../controllers/Medicine/CreateTypeMedicineController')},
-    {path:'/register/type-accessory', controller: require('../../controllers/Accesory/CreateTypeAccessoryController')},
+    {path:'/register/type-accessory', controller: require('../../controllers/Product/CreateTypeAccessory')},
     // Read
     {path:'/list/employee/:id', controller: require('../../controllers/Employee/ReadIdEmployeeController').ReadIdEmployee},
     {path:'/list/medical/:id', controller: require('../../controllers/Employee/ReadIdEmployeeController').ReadIdMedical},
